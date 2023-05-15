@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="entidades">
+  <ClassDiagramComponents>
+    <Class name="Alumno" package="entidades" visibility="public" xPosition="521.0" yPosition="33.0">
+      <Fields>
+        <Field name="legajo" type="int" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="materiasInscripto" type="ArrayList&lt;Materia&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="legajo"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getMateriasInscripto" returnType="ArrayList&lt;Materia&gt;" visibility="public"/>
+        <Method name="setMateriasInscripto" returnType="ArrayList&lt;Materia&gt;" visibility="public">
+          <Argument type="ArrayList&lt;Materia&gt;" name="materiasInscripto"/>
+        </Method>
+        <Method name="getLegajo" returnType="int" visibility="public"/>
+        <Method name="setLegajo" returnType="int" visibility="public">
+          <Argument type="int" name="legajo"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="String" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="String" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="agregarMateria" returnType="Materia" visibility="public">
+          <Argument type="Materia" name="materia"/>
+        </Method>
+        <Method name="cantidadMaterias" returnType="int" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="mostrarAlumno" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Colegio" package="entidades" visibility="public" xPosition="98.0" yPosition="420.0">
+      <Fields>
+        <Field name="alumnos" type="ArrayList&lt;Alumno&gt;" visibility="public" isStatic="true"/>
+        <Field name="materias" type="ArrayList&lt;Materia&gt;" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="String[]" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Materia" package="entidades" visibility="public" xPosition="591.0" yPosition="534.0">
+      <Fields>
+        <Field name="idMaterias" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="anio" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="idMaterias"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="anio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdMaterias" returnType="int" visibility="public"/>
+        <Method name="setIdMaterias" returnType="int" visibility="public">
+          <Argument type="int" name="idMaterias"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="String" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getAnio" returnType="int" visibility="public"/>
+        <Method name="setAnio" returnType="int" visibility="public">
+          <Argument type="int" name="anio"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Menu" package="" visibility="public" xPosition="161.0" yPosition="296.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="FormularioAlumno" package="" visibility="public" xPosition="71.0" yPosition="93.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="FormularioInscripcion" package="" visibility="public" xPosition="253.0" yPosition="93.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="FormularioMateria" package="" visibility="public" xPosition="319.0" yPosition="154.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="MostrarAlumno" package="" visibility="public" xPosition="26.0" yPosition="154.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="materias" source="entidades.Colegio" target="entidades.Materia" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Materia&gt;"/>
+    <UseRelation name="Usa" source="entidades.Colegio" target="Menu" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="agrega" source="Menu" target="MostrarAlumno" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="agrega" source="Menu" target="FormularioMateria" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation source="entidades.Alumno" target="entidades.Materia" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="alumnos" source="entidades.Colegio" target="entidades.Alumno" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Alumno&gt;"/>
+    <HasRelation name="agrega" source="Menu" target="FormularioInscripcion" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="agrega" source="Menu" target="FormularioAlumno" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="materiasInscripto" source="entidades.Alumno" target="entidades.Materia" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Materia&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
