@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="TPTransversal1_G10">
+  <ClassDiagramComponents>
+    <Class name="Persona" package="" visibility="public" xPosition="210.0" yPosition="82.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="dni" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Materia" package="" visibility="public" xPosition="701.0" yPosition="82.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Curso" package="" visibility="public" xPosition="504.0" yPosition="82.0">
+      <Fields>
+        <Field name="alumno" type="Persona" visibility="private"/>
+        <Field name="materia" type="Materia" visibility="private"/>
+        <Field name="notaFinal" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Alumno" package="" visibility="public" xPosition="504.0" yPosition="373.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Administrador" package="" visibility="public" xPosition="255.0" yPosition="373.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>
