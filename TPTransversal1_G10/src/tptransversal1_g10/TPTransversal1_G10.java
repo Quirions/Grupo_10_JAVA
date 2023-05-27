@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import entidades.Inscripcion;
 import entidades.Materia;
+import vistas.MenuEscritorio;
 
 /**
  *
@@ -98,6 +99,15 @@ public class TPTransversal1_G10 {
 //       ad.alumnosActivo();
 
 
+
+
+        MenuEscritorio me = new MenuEscritorio();
+        me.setVisible(true);
+
+
     }
+    
+    
+    
     
 }

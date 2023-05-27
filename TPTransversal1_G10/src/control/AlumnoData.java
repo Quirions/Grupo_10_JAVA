@@ -45,8 +45,7 @@ public class AlumnoData {
             if(resultado.next()){
                 alumno.setID(resultado.getInt(1));
             }
-            
-            JOptionPane.showMessageDialog(null, "El alumno se guardo correctamente");
+     
             st.close();
             
             }catch(SQLException e){
@@ -55,9 +54,11 @@ public class AlumnoData {
                 e.getMessage();
                 Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, e.getMessage() );
             }
+            
             }
     
     public Alumno buscarAlumno(int id_alumno){
+        
         Alumno alumno=null ;
         String query = "SELECT * FROM alumno WHERE id_alumno = ? ;";
           
@@ -75,16 +76,16 @@ public class AlumnoData {
                 al.setDni(resultado.getInt("dni"));
                 al.setFecha_nac (resultado.getDate("fecha_nacimiento").toLocalDate());
                 al.setEstado(resultado.getBoolean("estado"));
-                 JOptionPane.showMessageDialog(null,al.toString());
-                 alumno=al;
+                alumno=al;
             }
-            st.close();
+               st.close(); 
+
             }catch(SQLException e){
                 
-                JOptionPane.showMessageDialog(null,"Error al guardar alumno ");
+                JOptionPane.showMessageDialog(null,"Error al Buscar alumno ");
                 Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, e.getMessage() );
             }
-        return alumno;
+             return alumno;
             }
     
     public void actualizarAlumno(Alumno al){

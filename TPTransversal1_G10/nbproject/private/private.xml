@@ -3,12 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/mauri/Documents/GitHub/JAVA-ULP/TPTransversal1_G10/src/entidades/Inscripcion.java</file>
+            <file>file:/C:/Users/mauri/Documents/GitHub/JAVA-ULP/TPTransversal1_G10/src/vistas/MenuEscritorio.java</file>
+            <file>file:/C:/Users/mauri/Documents/GitHub/JAVA-ULP/TPTransversal1_G10/src/vistas/GestionarMateria.java</file>
+            <file>file:/C:/Users/mauri/Documents/GitHub/JAVA-ULP/TPTransversal1_G10/src/vistas/FormularioMateria.java</file>
             <file>file:/C:/Users/mauri/Documents/GitHub/JAVA-ULP/TPTransversal1_G10/src/entidades/Alumno.java</file>
+            <file>file:/C:/Users/mauri/Documents/GitHub/JAVA-ULP/TPTransversal1_G10/src/vistas/BajaAlumno.java</file>
             <file>file:/C:/Users/mauri/Documents/GitHub/JAVA-ULP/TPTransversal1_G10/src/control/MateriaData.java</file>
             <file>file:/C:/Users/mauri/Documents/GitHub/JAVA-ULP/TPTransversal1_G10/src/control/AlumnoData.java</file>
-            <file>file:/C:/Users/mauri/Documents/GitHub/JAVA-ULP/TPTransversal1_G10/src/control/InscripcionData.java</file>
-            <file>file:/C:/Users/mauri/Documents/GitHub/JAVA-ULP/TPTransversal1_G10/src/entidades/Materia.java</file>
+            <file>file:/C:/Users/mauri/Documents/GitHub/JAVA-ULP/TPTransversal1_G10/src/vistas/GestionarAlumno.java</file>
             <file>file:/C:/Users/mauri/Documents/GitHub/JAVA-ULP/TPTransversal1_G10/src/tptransversal1_g10/TPTransversal1_G10.java</file>
         </group>
     </open-files>
