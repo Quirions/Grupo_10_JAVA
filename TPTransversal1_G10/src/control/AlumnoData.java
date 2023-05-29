@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import static org.mariadb.jdbc.internal.util.pool.Pools.close;
+
 
 
 public class AlumnoData {
@@ -103,13 +103,6 @@ public class AlumnoData {
              
             int exito = stUpdate.executeUpdate();
             
-            if(exito==1){
-                
-                JOptionPane.showMessageDialog(null, "Alumno modificado");
-                
-            }else{
-                 JOptionPane.showMessageDialog(null, "Alumno no encontrado");
-            }
             stUpdate.close();
             
         } catch (SQLException ex) {
@@ -135,9 +128,9 @@ public class AlumnoData {
             PreparedStatement st_delete = con.prepareStatement(bajaLogica);
             st_delete.setInt(1, id_alumno);
             st_delete.executeUpdate();
-              JOptionPane.showMessageDialog(null, "registro eliminado");
-            }else{
-              JOptionPane.showMessageDialog(null, "ID del alumno no encontrado");
+//              JOptionPane.showMessageDialog(null, "registro eliminado");
+//            }else{
+//              JOptionPane.showMessageDialog(null, "ID del alumno no encontrado");
             }
             
           st.close();
@@ -195,7 +188,7 @@ public class AlumnoData {
                 alumno.setEstado(rs.getBoolean("estado"));
                 alumnos.add(alumno);
             }
-            JOptionPane.showMessageDialog(null, alumnos.toString());
+//            JOptionPane.showMessageDialog(null, alumnos.toString());
             ps.close();
            
 

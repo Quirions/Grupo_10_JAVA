@@ -1,6 +1,6 @@
 
 package control;
-//esta es la testeada
+
 
 import entidades.Alumno;
 import java.sql.Connection;
@@ -43,7 +43,7 @@ public class MateriaData {
                 materia.setId_materia(resultado.getInt(1));
             }
             
-            JOptionPane.showMessageDialog(null, "La Materia se guardo correctamente");
+//            JOptionPane.showMessageDialog(null, "La Materia se guardo correctamente");
             st.close();
             }catch(SQLException e){
                 
@@ -65,12 +65,10 @@ public class MateriaData {
             
             if(resultado.next()){
                 Materia m = new Materia();
+                m.setId_materia(id_materia);
                 m.setNombre(resultado.getString("nombre"));
                 m.setAnio(resultado.getInt("anio"));
                 materia=m;
-                JOptionPane.showMessageDialog(null, m.toString());
-            }else{
-                JOptionPane.showMessageDialog(null, "Materia no encontrada");
             }
             st.close();
             }catch(SQLException e){

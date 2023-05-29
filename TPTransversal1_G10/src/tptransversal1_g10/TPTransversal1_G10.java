@@ -101,8 +101,8 @@ public class TPTransversal1_G10 {
 
 
 
-        MenuEscritorio me = new MenuEscritorio();
-        me.setVisible(true);
+//        MenuEscritorio me = new MenuEscritorio();
+//        me.setVisible(true);
 
 
     }
