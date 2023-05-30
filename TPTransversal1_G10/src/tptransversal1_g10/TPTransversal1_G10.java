@@ -21,7 +21,8 @@ public class TPTransversal1_G10 {
 
     
     public static void main(String[] args) {
-       
+               MenuEscritorio me = new MenuEscritorio();
+               me.setVisible(true);
         
         //agregar:
         
@@ -101,8 +102,7 @@ public class TPTransversal1_G10 {
 
 
 
-//        MenuEscritorio me = new MenuEscritorio();
-//        me.setVisible(true);
+
 
 
     }

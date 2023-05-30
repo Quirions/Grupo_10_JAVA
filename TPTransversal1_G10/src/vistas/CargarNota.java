@@ -147,7 +147,8 @@ public class CargarNota extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBoxAlumnoItemStateChanged
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-     Alumno al = (Alumno) jComboBoxAlumno.getSelectedItem();
+     if(jTableMaterias.getSelectedRow() != -1){
+          Alumno al = (Alumno) jComboBoxAlumno.getSelectedItem();
     
      int filaSeleccionada = jTableMaterias.getSelectedRow();
     
@@ -159,6 +160,11 @@ public class CargarNota extends javax.swing.JInternalFrame {
     
     JOptionPane.showMessageDialog(null, "Nota guardada");
     llenarMateriasIns();
+     }else{
+         JOptionPane.showMessageDialog(null, "Debe seleccionar una materia");
+     }
+        
+    
     }//GEN-LAST:event_jbGuardarActionPerformed
     public void llenarCBAlumnos(){
         jComboBoxAlumno.setModel(comboModelA);
