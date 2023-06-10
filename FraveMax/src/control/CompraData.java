@@ -80,7 +80,7 @@ public class CompraData implements SqlCrud{
             ps.executeUpdate();
             ps.close();
         } catch (SQLException ex) {
-            Logger.getLogger(ClienteData.class.getName()).log(Level.SEVERE, null, ex.getMessage());
+            Logger.getLogger(ClienteData.class.getName()).log(Level.SEVERE, "Error al conectar con base de datos", ex.getMessage());
         }
         
         return compraActualizada;
@@ -127,7 +127,7 @@ public class CompraData implements SqlCrud{
             ps.close();
             rs.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Materia " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, " Error al conectar con base de datos " + ex.getMessage());
         }
         return listaCompras;
         

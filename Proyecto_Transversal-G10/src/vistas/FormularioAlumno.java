@@ -280,16 +280,6 @@ try {
 } catch (NumberFormatException e) {
     JOptionPane.showMessageDialog(this, "Error: Algunos datos que ingresas deben ser números");
 }
-
-
-
-
-
-
-
-
-
-        
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed

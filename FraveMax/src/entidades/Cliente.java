@@ -10,27 +10,27 @@ public class Cliente {
     
     private int dni;
     
-    private String direccion; 
+    private String domicilio; 
 
     private int telefono;
     
     private boolean estado;
 
-    public Cliente(int idCliente, String nombre, String apellido, int dni, String direccion, int telefono, boolean estado) {
+    public Cliente(int idCliente, String nombre, String apellido, int dni, String domicilio, int telefono, boolean estado) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
-        this.direccion = direccion;
+        this.domicilio = domicilio;
         this.telefono = telefono;
         this.estado = estado;
     }
 
-    public Cliente(String nombre, String apellido, int dni, String direccion, int telefono, boolean estado) {
+    public Cliente(String nombre, String apellido, int dni, String domicilio, int telefono, boolean estado) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
-        this.direccion = direccion;
+        this.domicilio = domicilio;
         this.telefono = telefono;
         this.estado = estado;
     }
@@ -70,12 +70,12 @@ public class Cliente {
         this.dni = dni;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getDomicilio() {
+        return domicilio;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setDomicilio(String domicilio) {
+        this.domicilio = domicilio;
     }
 
     public int getTelefono() {
@@ -92,6 +92,11 @@ public class Cliente {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "idCliente=" + idCliente + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", domicilio=" + domicilio + ", telefono=" + telefono + ", estado=" + estado + '}';
     }
     
     

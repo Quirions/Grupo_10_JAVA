@@ -17,10 +17,10 @@ import javax.swing.JOptionPane;
 
 public class ClienteData implements SqlCrud {
 
-    private final String INSERT = "INSERT INTO cliente (nombre,apellido,dni,direccion,telefono,estado)VALUES = (?,?,?,?,?,1);";
-    private final String UPDATE = "UPDATE cliente SET nombre=?,apellido=?,dni=?,direccion=?,telefono=? WHERE idCliente =?";
+    private final String INSERT = "INSERT INTO cliente (nombre,apellido,dni,domicilio,telefono,estado)VALUES(?,?,?,?,?,1);";
+    private final String UPDATE = "UPDATE cliente SET nombre=?,apellido=?,dni=?,domicilio=?,telefono=? WHERE idCliente =?";
     private final String DELETE = "DELETE FROM cliente WHERE idCliente = ? ";
-    private final String OBTENER_UNO = "SELECT idCliente FROM cliente WHERE idCliente = ?";
+    private final String OBTENER_UNO = "SELECT * FROM cliente WHERE idCliente = ?";
     private final String OBTENER_TODO = "SELECT * FROM cliente ";
    
     private final Connection con ;
@@ -45,7 +45,7 @@ public class ClienteData implements SqlCrud {
                cliente.setNombre(rs.getString("nombre"));
                cliente.setApellido(rs.getString("apellido"));
                cliente.setDni(rs.getInt("dni"));
-               cliente.setDireccion(rs.getString("direccion"));
+               cliente.setDomicilio(rs.getString("domicilio"));
                cliente.setTelefono(rs.getInt("telefono"));
                cliente.setEstado(rs.getBoolean("estado"));
                
@@ -60,7 +60,10 @@ public class ClienteData implements SqlCrud {
         
     }
     
-    public void bajaLogicaCliente(){
+    public void bajaLogicaCliente(int idCliente){
+        
+    }
+    public void habilitarCliente(Cliente c) {
         
     }
  
@@ -71,10 +74,10 @@ public class ClienteData implements SqlCrud {
         
         try {
             PreparedStatement st = con.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
-            st.setString(1, cliente.getDireccion());
+            st.setString(1, cliente.getNombre());
             st.setString(2, cliente.getApellido());
             st.setInt(3,cliente.getDni());
-            st.setString(4, cliente.getDireccion());
+            st.setString(4, cliente.getDomicilio());
             st.setInt(5, cliente.getTelefono());
             st.executeUpdate();
             
@@ -114,7 +117,7 @@ public class ClienteData implements SqlCrud {
             ps.setString(1, cliente.getNombre());
             ps.setString(2, cliente.getApellido());
             ps.setInt(3, cliente.getDni());
-            ps.setString(4,cliente.getDireccion());
+            ps.setString(4,cliente.getDomicilio());
             ps.setInt(5,cliente.getTelefono());
             ps.setInt(6,cliente.getIdCliente());
             clienteActualizado = cliente;
@@ -138,17 +141,21 @@ public class ClienteData implements SqlCrud {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
            if(rs.next()){
-               cliente.setIdCliente(id);
-               cliente.setNombre(rs.getString("nombre"));
-               cliente.setApellido(rs.getString("apellido"));
-               cliente.setDni(rs.getInt("dni"));
-               cliente.setDireccion(rs.getString("direccion"));
-               cliente.setTelefono(rs.getInt("telefono"));
-               cliente.setEstado(rs.getBoolean("estado"));
+               
+               Cliente c = new Cliente();
+               c.setIdCliente(id);
+               c.setNombre(rs.getString("nombre"));
+               c.setApellido(rs.getString("apellido"));
+               c.setDni(rs.getInt("dni"));
+               c.setDomicilio(rs.getString("domicilio"));
+               c.setTelefono(rs.getInt("telefono"));
+               c.setEstado(rs.getBoolean("estado"));
+               cliente=c;
+               
            }
             ps.close();
         } catch (SQLException ex) {
-            Logger.getLogger(ClienteData.class.getName()).log(Level.SEVERE, null, ex.getMessage());
+            Logger.getLogger(ClienteData.class.getName()).log(Level.SEVERE, "Error de tabla Cliente", ex.getMessage());
         }
         return cliente;
     }
@@ -169,17 +176,19 @@ public class ClienteData implements SqlCrud {
                 c.setApellido(rs.getString("apellido"));
                 c.setNombre(rs.getString("nombre"));
                 c.setEstado(rs.getBoolean("estado"));
-                c.setDireccion(rs.getString("direccion"));
+                c.setDomicilio(rs.getString("domicilio"));
                 c.setTelefono(rs.getInt("telefono"));
                 listaClientes.add(c);
             }
             ps.close();
             rs.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Materia " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Cliente " + ex.getMessage());
         }
         return listaClientes;
         
     }
+
+ 
     
 }

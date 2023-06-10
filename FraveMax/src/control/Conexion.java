@@ -12,12 +12,12 @@ public class Conexion {
     private static final String DATABASE_URL = "jdbc:mariadb://";
     private static final String DATABASE_HOST = "localhost";
     private static final String DATABASE_PUERTO = ":3306";
-    private static final String DATABASE_DB = "/FraveMax_g10";
+    private static final String DATABASE_DB = "/fraveMax_g10";
     private static final String DATABASE_USUARIO = "root";
     private static final String DATABASE_PASSWORD = "";
     private static Conexion conexion = null;
     
-    private Conexion(String jdbcmysqllocalhostuniversidad, String root, String string) {
+    private Conexion(String jdbcmysqllocalhost, String root, String string) {
         try {
             
             Class.forName("org.mariadb.jdbc.Driver");
@@ -31,7 +31,7 @@ public class Conexion {
         Connection con = null;
         
         if ( conexion == null ) {
-            conexion = new Conexion("jdbc:mysql://localhost/FraveMax_g10", "root", "");
+            conexion = new Conexion("jdbc:mysql://localhost/fraveMax_g10", "root", "");
         }
         
         try {
