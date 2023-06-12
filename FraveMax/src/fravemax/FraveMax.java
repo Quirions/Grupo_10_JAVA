@@ -1,6 +1,7 @@
 
 package fravemax;
 
+import control.ClienteData;
 import control.DetalleCompraData;
 import control.DetalleVentaData;
 import control.VentaData;
@@ -48,6 +49,102 @@ public class FraveMax {
             //vd.actualizar(venta);
             //vd.borrar(1);
             
+//        ClienteData:----------------------------------------------------------
+         
+//        INSERTAR
+        ClienteData cd = new ClienteData();
+        Cliente c = new Cliente("Ignacio","Soloa",3332258,"juan saa 222",26547532,true);
+        cd.insertar(c);
+       
+//        BORRAR
+
+//        ClienteData cd = new ClienteData();
+//        cd.borrar(1);
+        
+//        ACTUALIZAR
+
+//        ClienteData cd = new ClienteData();
+//        Cliente c = new Cliente("Ignacio","Soloa",3332666,"juan saa 222",26547532,true);
+//        cd.actualizar(c);
+
+//        OBTENER UNO 
+
+//        ClienteData cd = new ClienteData();
+//        Cliente c = (Cliente) cd.obtenerUno(2);
+
+//        OBTENER TODO 
+          
+//        ClienteData cd = new ClienteData();     
+//        ArrayList <Object> listaClientes = cd.obtenerTodo();
+//        System.out.println(listaClientes.toString());
+
+//        CompraData------------------------------------------------------------
+
+//        INSERTAR
+
+//        CompraData cd = new CompraData();
+//        Proveedor p = new Proveedor("Distribuidora X","San Martin 222",26548996);
+//        Compra c = new Compra(p,LocalDate.of(2023,02,02));
+//        cd.insertar(c);
+       
+//        BORRAR
+
+//        CompraData cd = new CompraData();
+//        cd.borrar(1);
+        
+//        ACTUALIZAR
+
+//        CompraData cd = new CompraData();
+//        Compra c = new Compra(p,LocalDate.of(2023,01,01));
+//        cd.actualizar(c);
+
+//        OBTENER UNO 
+
+//        CompraData cd = new CompraData();
+//        Compra c = (Compra) cd.obtenerUno(1);
+
+//        OBTENER TODO 
+          
+//        CompraData cd = new CompraData();     
+//        ArrayList <Object> listaCompras = cd.obtenerTodo();
+//        System.out.println(listaCompras.toString());
+
+
+
+//            //Pruebas productodata
+//            
+//            ProductoData pd = new ProductoData();
+//            Producto pro = new Producto(1,"nada",150,10,true);
+//            //Insertar
+//            pd.insertar(pro);
+//            //Actualizar
+//            pd.actualizar(pro);
+//            //ObtenerUno
+//            System.out.println(pd.obtenerUno(1));
+//            //ObtenerTodo
+//            System.out.println(pd.obtenerTodo());
+//            //Borrar
+//            pd.borrar(1);
+//            
+//            
+//            
+//            
+//            //Pruebas proveedorData
+//            
+//            ProveedorData pod = new ProveedorData();
+//            Proveedor prov = new Proveedor(1,"ninguna","San Luis",1234);
+//            
+//            //Insertar
+//            pod.insertar(prov);
+//            //Actualizar
+//            pod.actualizar(prov);
+//            //ObtenerUno
+//            System.out.println(pod.obtenerUno(1));
+//            //ObtenerTodo
+//            System.out.println(pod.obtenerTodo());
+//            //Borrar
+//            pod.borrar(1);
+
     }
     
 }
