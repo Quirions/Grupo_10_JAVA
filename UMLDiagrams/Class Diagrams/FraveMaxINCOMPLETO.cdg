@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="FraveMax">
+  <ClassDiagramComponents>
+    <Class name="ClienteData" package="control" visibility="public" xPosition="609.0" yPosition="18.0">
+      <Fields>
+        <Field name="INSERT" type="String" visibility="private" isFinal="true"/>
+        <Field name="UPDATE" type="String" visibility="private" isFinal="true"/>
+        <Field name="DELETE" type="String" visibility="private" isFinal="true"/>
+        <Field name="OBTENER_UNO" type="String" visibility="private" isFinal="true"/>
+        <Field name="OBTENER_TODO" type="String" visibility="private" isFinal="true"/>
+        <Field name="con" type="Connection" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="buscarClienteDNI" returnType="Cliente" visibility="public">
+          <Argument type="Cliente" name="c"/>
+        </Method>
+        <Method name="bajaLogicaCliente" returnType="void" visibility="public">
+          <Argument type="int" name="idCliente"/>
+        </Method>
+        <Method name="habilitarCliente" returnType="void" visibility="public">
+          <Argument type="Cliente" name="c"/>
+        </Method>
+        <Method name="insertar" returnType="void" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="borrar" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="actualizar" returnType="Object" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="obtenerUno" returnType="Object" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="obtenerTodo" returnType="ArrayList&lt;Object&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="CompraData" package="control" visibility="public" xPosition="1168.0" yPosition="285.0">
+      <Fields>
+        <Field name="INSERT" type="String" visibility="private" isFinal="true"/>
+        <Field name="UPDATE" type="String" visibility="private" isFinal="true"/>
+        <Field name="DELETE" type="String" visibility="private" isFinal="true"/>
+        <Field name="OBTENER_UNO" type="String" visibility="private" isFinal="true"/>
+        <Field name="OBTENER_TODO" type="String" visibility="private" isFinal="true"/>
+        <Field name="con" type="Connection" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="insertar" returnType="void" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="borrar" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="actualizar" returnType="Object" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="obtenerUno" returnType="Object" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="obtenerTodo" returnType="List&lt;Object&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Conexion" package="control" visibility="public" xPosition="86.0" yPosition="65.0">
+      <Fields>
+        <Field name="DATABASE_URL" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="DATABASE_HOST" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="DATABASE_PUERTO" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="DATABASE_DB" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="DATABASE_USUARIO" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="DATABASE_PASSWORD" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="conexion" type="Conexion" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="private">
+          <Argument type="String" name="jdbcmysqllocalhost"/>
+          <Argument type="String" name="root"/>
+          <Argument type="String" name="string"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getConexion" returnType="Connection" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="DetalleCompraData" package="control" visibility="public" xPosition="1043.0" yPosition="649.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="DetalleVentaData" package="control" visibility="public" xPosition="369.0" yPosition="587.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="insertar" returnType="void" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="borrar" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="actualizar" returnType="Object" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="obtenerUno" returnType="Object" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="obtenerTodo" returnType="List&lt;Object&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ProductoData" package="control" visibility="public" xPosition="732.0" yPosition="649.0">
+      <Fields>
+        <Field name="INSERT" type="String" visibility="private" isFinal="true"/>
+        <Field name="UPDATE" type="String" visibility="private" isFinal="true"/>
+        <Field name="DELETE" type="String" visibility="private" isFinal="true"/>
+        <Field name="OBTENER_UNO" type="String" visibility="private" isFinal="true"/>
+        <Field name="OBTENER_TODO" type="String" visibility="private" isFinal="true"/>
+        <Field name="con" type="Connection" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="insertar" returnType="void" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="borrar" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="actualizar" returnType="Object" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="obtenerUno" returnType="Object" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="obtenerTodo" returnType="List&lt;Object&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ProveedorData" package="control" visibility="public" xPosition="1145.0" yPosition="18.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="insertar" returnType="void" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="borrar" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="actualizar" returnType="Object" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="obtenerUno" returnType="Object" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="obtenerTodo" returnType="List&lt;Object&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="VentaData" package="control" visibility="public" xPosition="369.0" yPosition="442.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Interface name="SqlCrud" package="Interfaces" visibility="public" xPosition="1538.0" yPosition="285.0">
+      <Methods>
+        <Method name="insertar" returnType="void" visibility="package">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="borrar" returnType="void" visibility="package">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="actualizar" returnType="Object" visibility="package">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="obtenerUno" returnType="Object" visibility="package">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="obtenerTodo" returnType="List&lt;Object&gt;" visibility="package"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="tiene" source="control.VentaData" target="control.ClienteData" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="usa" source="control.ProductoData" target="control.Conexion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ag" source="control.DetalleCompraData" target="control.CompraData" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="control.ProductoData" target="Interfaces.SqlCrud"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="control.VentaData" target="Interfaces.SqlCrud"/>
+    <UseRelation name="usa" source="control.ClienteData" target="control.Conexion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ag" source="control.DetalleVentaData" target="control.VentaData" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="usa" source="control.ProveedorData" target="control.Conexion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ag" source="control.DetalleVentaData" target="control.ProductoData" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="tiene" source="control.CompraData" target="control.ProveedorData" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="usa" source="control.DetalleCompraData" target="control.Conexion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="control.ClienteData" target="Interfaces.SqlCrud"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="control.CompraData" target="Interfaces.SqlCrud"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="control.DetalleVentaData" target="Interfaces.SqlCrud"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="control.ProveedorData" target="Interfaces.SqlCrud"/>
+    <UseRelation name="usa" source="control.DetalleVentaData" target="control.Conexion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="control.DetalleCompraData" target="Interfaces.SqlCrud"/>
+    <UseRelation name="usa" source="control.CompraData" target="control.Conexion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="usa" source="control.VentaData" target="control.Conexion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ag" source="control.DetalleCompraData" target="control.ProductoData" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -63,6 +63,7 @@ public class ClienteData implements SqlCrud {
     public void bajaLogicaCliente(int idCliente){
         
     }
+    
     public void habilitarCliente(Cliente c) {
         
     }
@@ -135,6 +136,7 @@ public class ClienteData implements SqlCrud {
     
     @Override
     public Object obtenerUno(int id) {  
+        
         Cliente cliente = null;
         try {
             PreparedStatement ps = con.prepareStatement(OBTENER_UNO);
@@ -189,6 +191,5 @@ public class ClienteData implements SqlCrud {
         
     }
 
- 
-    
+
 }

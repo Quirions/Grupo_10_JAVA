@@ -7,7 +7,7 @@ import control.DetalleVentaData;
 import control.VentaData;
 import entidades.*;
 import java.time.LocalDate;
-import java.time.Month;
+import java.util.ArrayList;
 import vistas.MenuFravemax;
 
 public class FraveMax {
@@ -15,8 +15,70 @@ public class FraveMax {
     
     public static void main(String[] args) {
         
-//        MenuFravemax mf = new MenuFravemax();
-//        mf.setVisible(true);
+        MenuFravemax mf = new MenuFravemax();
+        mf.setVisible(true);
+        
+        
+//        ClienteData:----------------------------------------------------------
+         
+//        INSERTAR
+//        ClienteData cd = new ClienteData();
+//        Cliente c = new Cliente("Ignacio","Soloa",3332258,"juan saa 222",26547532,true);
+//        cd.insertar(c);
+       
+//        BORRAR
+
+//        ClienteData cd = new ClienteData();
+//        cd.borrar(1);
+        
+//        ACTUALIZAR
+
+//        ClienteData cd = new ClienteData();
+//        Cliente c = new Cliente("Ignacio","Soloa",3332666,"juan saa 222",26547532,true);
+//        cd.actualizar(c);
+
+//        OBTENER UNO 
+
+//        ClienteData cd = new ClienteData();
+//        Cliente c = (Cliente) cd.obtenerUno(2);
+
+//        OBTENER TODO 
+          
+//        ClienteData cd = new ClienteData();     
+//        ArrayList <Object> listaClientes = cd.obtenerTodo();
+//        System.out.println(listaClientes.toString());
+
+//        CompraData------------------------------------------------------------
+
+//        INSERTAR
+
+//        CompraData cd = new CompraData();
+//        Proveedor p = new Proveedor("Distribuidora X","San Martin 222",26548996);
+//        Compra c = new Compra(p,LocalDate.of(2023,02,02));
+//        cd.insertar(c);
+       
+//        BORRAR
+
+//        CompraData cd = new CompraData();
+//        cd.borrar(1);
+        
+//        ACTUALIZAR
+
+//        CompraData cd = new CompraData();
+//        Compra c = new Compra(p,LocalDate.of(2023,01,01));
+//        cd.actualizar(c);
+
+//        OBTENER UNO 
+
+//        CompraData cd = new CompraData();
+//        Compra c = (Compra) cd.obtenerUno(1);
+
+//        OBTENER TODO 
+          
+//        CompraData cd = new CompraData();     
+//        ArrayList <Object> listaCompras = cd.obtenerTodo();
+//        System.out.println(listaCompras.toString());
+
 //******************************************************************************
         //Pruebas DetalleVentaData
             //Producto producto = new Producto(1, "producto", 500, 10, true);
@@ -146,5 +208,8 @@ public class FraveMax {
 //            pod.borrar(1);
 
     }
+
+
+    }
     
-}
+
