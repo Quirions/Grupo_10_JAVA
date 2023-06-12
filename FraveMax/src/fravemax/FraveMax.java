@@ -15,8 +15,8 @@ public class FraveMax {
     
     public static void main(String[] args) {
         
-        MenuFravemax mf = new MenuFravemax();
-        mf.setVisible(true);
+//        MenuFravemax mf = new MenuFravemax();
+//        mf.setVisible(true);
         
         
 //        ClienteData:----------------------------------------------------------
@@ -114,9 +114,9 @@ public class FraveMax {
 //        ClienteData:----------------------------------------------------------
          
 //        INSERTAR
-        ClienteData cd = new ClienteData();
-        Cliente c = new Cliente("Ignacio","Soloa",3332258,"juan saa 222",26547532,true);
-        cd.insertar(c);
+//        ClienteData cd = new ClienteData();
+//        Cliente c = new Cliente("Ignacio","Soloa",3332258,"juan saa 222",26547532,true);
+//        cd.insertar(c);
        
 //        BORRAR
 
