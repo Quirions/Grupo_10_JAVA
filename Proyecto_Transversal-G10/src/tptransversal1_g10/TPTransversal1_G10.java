@@ -25,7 +25,7 @@ public class TPTransversal1_G10 {
         
         //agregar:
         
-//          Alumno al = new Alumno("raobeerto","raodo",2323233,LocalDate.of(1299,02,02),true);
+//          Alumno al = new Alumno("raobeerto","raodo",2323233,LocalDate.of(1999,02,02),true);
 //          AlumnoData ad = new AlumnoData();
 //          ad.agregarAlumno(al);
 //

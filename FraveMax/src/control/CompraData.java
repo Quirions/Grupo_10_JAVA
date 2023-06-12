@@ -19,11 +19,11 @@ import javax.swing.JOptionPane;
 
 public class CompraData implements SqlCrud{
     
-    private final String INSERT = "INSERT INTO compra (idCompra,idProveedor,fecha)VALUES = (?,?,?);";
-    private final String UPDATE = "UPDATE compra SET nombre=?,apellido=?,dni=?,direccion=?,telefono=? WHERE idCliente =?";
+    private final String INSERT = "INSERT INTO compra (idCompra,idProveedor,fecha)VALUES (?,?,?);";
+    private final String UPDATE = "UPDATE compra SET nombre=?,apellido=?,dni=?,direccion=?,telefono=? WHERE idCompra =?";
     private final String DELETE = "DELETE FROM compra WHERE idCompra = ? ";
-    private final String OBTENER_UNO = "SELECT idCliente FROM cliente WHERE idCliente = ?";
-    private final String OBTENER_TODO = "SELECT * FROM cliente";
+    private final String OBTENER_UNO = "SELECT * FROM compra WHERE idCompra = ?";
+    private final String OBTENER_TODO = "SELECT * FROM compra";
     
     private final Connection con ;
 
