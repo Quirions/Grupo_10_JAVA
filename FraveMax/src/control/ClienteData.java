@@ -89,7 +89,7 @@ public class ClienteData implements SqlCrud {
             }
             st.close();
         } catch (SQLException ex) {
-            Logger.getLogger(ClienteData.class.getName()).log(Level.SEVERE, "Error al conectarse a base de datos", ex.getMessage());
+            System.out.println("Error en la bd " + ex);
         }
         
     }
