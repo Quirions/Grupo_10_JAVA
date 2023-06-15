@@ -62,9 +62,29 @@ public class ClienteData implements SqlCrud {
     
     public void bajaLogicaCliente(int idCliente){
         
+           try{    
+            String bajaLogica = "UPDATE cliente SET estado = false WHERE idCliente = ? ";
+            PreparedStatement baja = con.prepareStatement(bajaLogica);
+            baja.setInt(1, idCliente);
+            int resultado = baja.executeUpdate();
+            baja.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteData.class.getName()).log(Level.SEVERE, null, ex.getMessage());
+        }
+ 
     }
     
     public void habilitarCliente(Cliente c) {
+        
+         try{    
+            String bajaLogica = "UPDATE cliente SET estado = true WHERE idCliente = ? ";
+            PreparedStatement alta = con.prepareStatement(bajaLogica);
+            alta.setInt(1, c.getIdCliente());
+            int resultado = alta.executeUpdate();
+            alta.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteData.class.getName()).log(Level.SEVERE, null, ex.getMessage());
+        }
         
     }
  
@@ -89,7 +109,7 @@ public class ClienteData implements SqlCrud {
             }
             st.close();
         } catch (SQLException ex) {
-            System.out.println("Error en la bd " + ex);
+            System.out.println("Error en la base de datos " + ex.getMessage());
         }
         
     }

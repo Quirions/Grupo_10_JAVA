@@ -15,8 +15,6 @@ public class VentaData implements SqlCrud{
     public VentaData() {
         conexion = Conexion.getConexion();
     }
-    
-      
 
     @Override
     public void insertar(Object object) {

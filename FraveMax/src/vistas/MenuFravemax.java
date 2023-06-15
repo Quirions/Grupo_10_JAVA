@@ -9,8 +9,11 @@ import javax.swing.JPanel;
 
 public class MenuFravemax extends javax.swing.JFrame {
     PCliente pc = new PCliente(this); 
+    PProducto pp = new PProducto(this);
+    PPVenta ppv = new PPVenta(this);
     public MenuFravemax() {
         initComponents();
+        this.setTitle("Control de Ventas e Inventario FRAVEMAX");
         mostrarJpanel(new PPrincipal());
         
         
@@ -27,6 +30,7 @@ public class MenuFravemax extends javax.swing.JFrame {
         jBProveedores = new javax.swing.JButton();
         jBCalendario = new javax.swing.JButton();
         Logo = new javax.swing.JLabel();
+        jBInicio = new javax.swing.JButton();
         JEscritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -38,7 +42,10 @@ public class MenuFravemax extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        jMNuevaVenta = new javax.swing.JMenuItem();
+        jMBuscarVenta = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,6 +87,11 @@ public class MenuFravemax extends javax.swing.JFrame {
         jBVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/chart_statistics_infographic_analytics_finance_business_bubbles_icon_252405.png"))); // NOI18N
         jBVentas.setText("     Ventas");
         jBVentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBVentasActionPerformed(evt);
+            }
+        });
 
         jBInventario.setBackground(new java.awt.Color(204, 0, 51));
         jBInventario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -115,13 +127,22 @@ public class MenuFravemax extends javax.swing.JFrame {
             }
         });
 
+        jBInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/3643769-building-home-house-main-menu-start_113416.png"))); // NOI18N
+        jBInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBInicioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelIconosLayout = new javax.swing.GroupLayout(jPanelIconos);
         jPanelIconos.setLayout(jPanelIconosLayout);
         jPanelIconosLayout.setHorizontalGroup(
             jPanelIconosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelIconosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Logo)
+                .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jBInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -140,15 +161,16 @@ public class MenuFravemax extends javax.swing.JFrame {
             jPanelIconosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelIconosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelIconosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelIconosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jBInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelIconosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jBProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jBClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jBProducots, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jBVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jBInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jBCalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jBCalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -207,6 +229,11 @@ public class MenuFravemax extends javax.swing.JFrame {
         });
 
         jMenuItem1.setText("Registrar Producto");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem1);
 
         jMenuItem2.setText("Administrar Prodcuto");
@@ -215,9 +242,25 @@ public class MenuFravemax extends javax.swing.JFrame {
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Ventas");
+
+        jMNuevaVenta.setText("Nueva venta");
+        jMNuevaVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMNuevaVentaActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMNuevaVenta);
+
+        jMBuscarVenta.setText("Buscar Venta");
+        jMenu4.add(jMBuscarVenta);
+
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Proveedores");
+
+        jMenuItem3.setText("Nuevo Proveedor");
+        jMenu5.add(jMenuItem3);
+
         jMenuBar1.add(jMenu5);
 
         jMenu6.setText("Inventario");
@@ -252,7 +295,7 @@ public class MenuFravemax extends javax.swing.JFrame {
     }//GEN-LAST:event_jBClientesActionPerformed
 
     private void jBProducotsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBProducotsActionPerformed
-      PProducto pp = new PProducto();
+
       mostrarJpanel(pp);
     }//GEN-LAST:event_jBProducotsActionPerformed
 
@@ -282,8 +325,26 @@ public class MenuFravemax extends javax.swing.JFrame {
     }//GEN-LAST:event_jmSalirActionPerformed
 
     private void LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoMouseClicked
-        mostrarJpanel(new PPrincipal());
+        
     }//GEN-LAST:event_LogoMouseClicked
+
+    private void jMNuevaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMNuevaVentaActionPerformed
+        JIFAdminVenta jif = new JIFAdminVenta();
+        mostrarJIF(jif);
+    }//GEN-LAST:event_jMNuevaVentaActionPerformed
+
+    private void jBInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBInicioActionPerformed
+        mostrarJpanel(new PPrincipal());
+    }//GEN-LAST:event_jBInicioActionPerformed
+
+    private void jBVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVentasActionPerformed
+        mostrarJpanel(ppv);
+    }//GEN-LAST:event_jBVentasActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        JIFRegistrarProducto jif = new JIFRegistrarProducto();
+        mostrarJIF(jif);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -326,10 +387,13 @@ public class MenuFravemax extends javax.swing.JFrame {
     private javax.swing.JMenuItem jAdministrarCliente;
     private javax.swing.JButton jBCalendario;
     private javax.swing.JButton jBClientes;
+    private javax.swing.JButton jBInicio;
     private javax.swing.JButton jBInventario;
     private javax.swing.JButton jBProducots;
     private javax.swing.JButton jBProveedores;
     private javax.swing.JButton jBVentas;
+    private javax.swing.JMenuItem jMBuscarVenta;
+    private javax.swing.JMenuItem jMNuevaVenta;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -339,6 +403,7 @@ public class MenuFravemax extends javax.swing.JFrame {
     private static javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jNuevoCliente;
     private javax.swing.JPanel jPanelIconos;
     private javax.swing.JMenuItem jmSalir;

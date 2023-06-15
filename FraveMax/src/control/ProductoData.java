@@ -16,11 +16,12 @@ import javax.swing.JOptionPane;
 
 public class ProductoData implements SqlCrud{
     
-    private final String INSERT = "INSERT INTO (idProducto,descripcion,precioActual,stock,estado)VALUES = (?,?,?,?,?)";
-    private final String UPDATE = "UPDATE producto SET descripcion=?,precioActual=?,stock=?,estado=? WHERE producto =?";
+    private final String INSERT = "INSERT INTO producto (descripcion,precioActual,stock,estado)VALUES(?,?,?,1)";
+    private final String UPDATE = "UPDATE producto SET descripcion=?,precioActual=?,stock=? WHERE idProducto=?";
     private final String DELETE = "DELETE FROM producto WHERE idProducto = ? ";
     private final String OBTENER_UNO = "SELECT * FROM producto WHERE idProducto = ?";
     private final String OBTENER_TODO = "SELECT * FROM producto ";
+    
     private final Connection con ;
     
     public ProductoData() {
@@ -35,10 +36,10 @@ public class ProductoData implements SqlCrud{
         
         try {
             PreparedStatement st = con.prepareStatement(INSERT,Statement.RETURN_GENERATED_KEYS);
-            st.setInt(1, producto.getIdProducto());
-            st.setString(2, producto.getDescripcion());
-            st.setDouble(3,producto.getPrecioActual());
-            st.setInt(4, producto.getStock());
+           
+            st.setString(1, producto.getDescripcion());
+            st.setDouble(2,producto.getPrecioActual());
+            st.setInt(3, 0);
             st.executeUpdate();
             
             ResultSet rs = st.getGeneratedKeys();
@@ -51,7 +52,6 @@ public class ProductoData implements SqlCrud{
             Logger.getLogger(ProductoData.class.getName()).log(Level.SEVERE, "Error al conectarse a base de datos", ex.getMessage());
         }
     }
-
 
     @Override
     public void borrar(int id) {
@@ -72,15 +72,15 @@ public class ProductoData implements SqlCrud{
     public Object actualizar(Object object) {
         
         Producto producto = (Producto) object;
-        
         Producto productoActualizado = null;
-        
         try {
+           
             PreparedStatement ps = con.prepareStatement(UPDATE);
-            ps.setInt(1, producto.getIdProducto());
-            ps.setString(2, producto.getDescripcion());
-            ps.setDouble(3,producto.getPrecioActual());
-            ps.setInt(4, producto.getStock());
+            
+            ps.setString(1, producto.getDescripcion());
+            ps.setDouble(2,producto.getPrecioActual());
+            ps.setInt(3, producto.getStock());
+            ps.setInt(4,producto.getIdProducto());
             productoActualizado=producto;
             ps.executeUpdate();
             ps.close();
@@ -120,10 +120,6 @@ public Object obtenerUno(int id) {
     return producto;
 }
 
-                  
-     
-    
-
     @Override
 public List<Object> obtenerTodo() {
     ArrayList<Object> listaProductos = new ArrayList<>();
@@ -148,6 +144,10 @@ public List<Object> obtenerTodo() {
 
     return listaProductos;
 }
+
+    public void bajaLogicaProducto(int idProducto) {
+        
+    }
 
 
     

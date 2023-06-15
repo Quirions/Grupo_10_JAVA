@@ -1,27 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package vistas;
 
 
 import control.ClienteData;
 import entidades.Cliente;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author mauri
- */
+
 public class PCliente extends javax.swing.JPanel {
     private MenuFravemax menuFravemax;
     private DefaultTableModel dtm = new DefaultTableModel();
     private ClienteData cd = new ClienteData();
     public PCliente(MenuFravemax menuFravemax) {
-        initComponents();
         this.menuFravemax = menuFravemax;
+        
+        initComponents();
         crearTabla();
         llenarTabla();
     }
@@ -49,6 +46,11 @@ public class PCliente extends javax.swing.JPanel {
 
         jBEliminiar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jBEliminiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/biggarbagebin_121980.png"))); // NOI18N
+        jBEliminiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminiarActionPerformed(evt);
+            }
+        });
 
         jBAgregar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jBAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add_icon-icons.com_74429.png"))); // NOI18N
@@ -137,6 +139,12 @@ public class PCliente extends javax.swing.JPanel {
         llenarTabla();
     }//GEN-LAST:event_JBActualizarActionPerformed
 
+    private void jBEliminiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminiarActionPerformed
+        
+        eliminarSelectDeTabla();
+        
+    }//GEN-LAST:event_jBEliminiarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBActualizar;
     private javax.swing.JButton jBAgregar;
@@ -158,11 +166,27 @@ public class PCliente extends javax.swing.JPanel {
         ArrayList<Object>listaCliente = cd.obtenerTodo();
         for (Object aux : listaCliente) {
             Cliente cliente = (Cliente)aux;
+            if(cliente.isEstado()){
             dtm.addRow(new Object[]{cliente.getIdCliente(),cliente.getApellido(),cliente.getNombre(),cliente.getDni(),cliente.getDomicilio(),cliente.getTelefono()});
-            
+            }
         }
-        
-        
+
     }
-    
+   public void eliminarSelectDeTabla(){
+       
+       DefaultTableModel model = (DefaultTableModel) jTableClientes.getModel();
+       
+       int id = (int) model.getValueAt(jTableClientes.getSelectedRow(), 0);
+        
+        Cliente c = (Cliente) cd.obtenerUno(id);
+        if(c.isEstado()){
+            int opcion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de dar de BAJA este cliente?", "Confirmación", JOptionPane.YES_NO_OPTION);
+            
+            if (opcion == JOptionPane.YES_OPTION) {
+                cd.bajaLogicaCliente(c.getIdCliente());
+               
+            }
+        }
+       
+   } 
 }

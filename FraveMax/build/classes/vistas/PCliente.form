@@ -78,6 +78,9 @@
           <Image iconType="3" name="/img/biggarbagebin_121980.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBEliminiarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jBAgregar">
       <Properties>

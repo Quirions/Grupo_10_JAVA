@@ -52,6 +52,8 @@ public class JIFAdminCliente extends javax.swing.JInternalFrame {
 
         jTextField1.setText("jTextField1");
 
+        setBackground(new java.awt.Color(102, 204, 255));
+
         jBSalir.setText("Salir");
         jBSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -331,10 +333,10 @@ public class JIFAdminCliente extends javax.swing.JInternalFrame {
         jTTelefono.setText(String.valueOf(c.getTelefono()));jTTelefono.setEditable(true);
         
         if(c.isEstado()){
-            jLEstado.setText("HABILITADO");
+            jLEstado.setText("ACTIVO");
             jLEstado.setForeground(Color.green);
         }else{
-            jLEstado.setText("INHABILITADO");
+            jLEstado.setText("INACTIVO");
             jLEstado.setForeground(Color.red);
         }
         
@@ -349,7 +351,7 @@ public class JIFAdminCliente extends javax.swing.JInternalFrame {
             
             if (opcion == JOptionPane.YES_OPTION) {
                 cd.bajaLogicaCliente(c.getIdCliente());
-                jLEstado.setText("INHABILITADO");
+                jLEstado.setText("INACTIVO");
                 jLEstado.setForeground(Color.red);
             }
         }

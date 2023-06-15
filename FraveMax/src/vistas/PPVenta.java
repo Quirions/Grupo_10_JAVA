@@ -3,9 +3,13 @@ package vistas;
 
 
 import control.ClienteData;
+import control.DetalleVentaData;
 import control.ProductoData;
+import control.VentaData;
 import entidades.Cliente;
+import entidades.DetalleVenta;
 import entidades.Producto;
+import entidades.Venta;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
@@ -13,11 +17,14 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
-public class PProducto extends javax.swing.JPanel {
+public class PPVenta extends javax.swing.JPanel {
     private MenuFravemax menuFravemax;
     private DefaultTableModel dtm = new DefaultTableModel();
+    private DetalleVentaData dvd = new DetalleVentaData();
+    private VentaData vd = new VentaData();
+    private ClienteData cd = new ClienteData();
     private ProductoData pd = new ProductoData();
-    public PProducto(MenuFravemax menuFravemax) {
+    public PPVenta(MenuFravemax menuFravemax) {
         this.menuFravemax = menuFravemax;
         
         initComponents();
@@ -30,10 +37,9 @@ public class PProducto extends javax.swing.JPanel {
     private void initComponents() {
 
         JBActualizar = new javax.swing.JButton();
-        jBEliminiar = new javax.swing.JButton();
         jBAgregar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableProductos = new javax.swing.JTable();
+        jTableClientes = new javax.swing.JTable();
         jPanelFondo = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -46,14 +52,6 @@ public class PProducto extends javax.swing.JPanel {
             }
         });
 
-        jBEliminiar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jBEliminiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/biggarbagebin_121980.png"))); // NOI18N
-        jBEliminiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBEliminiarActionPerformed(evt);
-            }
-        });
-
         jBAgregar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jBAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add_icon-icons.com_74429.png"))); // NOI18N
         jBAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -62,8 +60,8 @@ public class PProducto extends javax.swing.JPanel {
             }
         });
 
-        jTableProductos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTableProductos.setModel(new javax.swing.table.DefaultTableModel(
+        jTableClientes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTableClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -82,10 +80,10 @@ public class PProducto extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTableProductos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane1.setViewportView(jTableProductos);
+        jTableClientes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(jTableClientes);
 
-        jPanelFondo.setBackground(new java.awt.Color(255, 255, 51));
+        jPanelFondo.setBackground(new java.awt.Color(102, 255, 102));
 
         javax.swing.GroupLayout jPanelFondoLayout = new javax.swing.GroupLayout(jPanelFondo);
         jPanelFondo.setLayout(jPanelFondoLayout);
@@ -105,7 +103,6 @@ public class PProducto extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBEliminiar, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JBActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
@@ -122,9 +119,7 @@ public class PProducto extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(JBActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBEliminiar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(JBActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(jPanelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -132,7 +127,7 @@ public class PProducto extends javax.swing.JPanel {
 
     private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
 
-        JIFRegistrarProducto jif = new JIFRegistrarProducto();
+        JIFNuevoCliente jif = new JIFNuevoCliente();
         menuFravemax.mostrarJIF(jif);
         
     }//GEN-LAST:event_jBAgregarActionPerformed
@@ -141,54 +136,35 @@ public class PProducto extends javax.swing.JPanel {
         llenarTabla();
     }//GEN-LAST:event_JBActualizarActionPerformed
 
-    private void jBEliminiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminiarActionPerformed
-        
-        eliminarSelectDeTabla();
-        
-    }//GEN-LAST:event_jBEliminiarActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBActualizar;
     private javax.swing.JButton jBAgregar;
-    private javax.swing.JButton jBEliminiar;
     private javax.swing.JPanel jPanelFondo;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableProductos;
+    private javax.swing.JTable jTableClientes;
     // End of variables declaration//GEN-END:variables
 
     private void crearTabla(){
-        String [] cabecera = {"CODIGO","DESCRIPCION","PRECIO","STOCK"};
+        String [] cabecera = {"FECHA","NUMERO DE VENTA","CLIENTE","DNI","PRODUCTO","CANTIDAD","PRECIO UNIDAD","PRECIO TOTAL"};
         dtm.setColumnIdentifiers(cabecera);
-        jTableProductos.setModel(dtm); 
+        jTableClientes.setModel(dtm); 
     }
-    
     private void llenarTabla(){
         
         dtm.setRowCount(0);
-        ArrayList<Object>listaProductos = (ArrayList<Object>) pd.obtenerTodo();
-        for (Object aux : listaProductos) {
-            Producto producto = (Producto)aux;
-            if(producto.isEstado()){
-            dtm.addRow(new Object[]{producto.getIdProducto(),producto.getDescripcion(),producto.getPrecioActual(),producto.getStock()});
-            }
-        }
-
-    }
-   public void eliminarSelectDeTabla(){
-       
-       DefaultTableModel model = (DefaultTableModel) jTableProductos.getModel();
-       
-       int id = (int) model.getValueAt(jTableProductos.getSelectedRow(), 0);
-        
-        Producto p = (Producto) pd.obtenerUno(id);
-        if(p.isEstado()){
-            int opcion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de dar de BAJA este producto?", "Confirmación", JOptionPane.YES_NO_OPTION);
+        ArrayList<Object>listaVentas = (ArrayList<Object>) dvd.obtenerTodo();
+        for (Object aux : listaVentas) {
+            DetalleVenta dv = (DetalleVenta)aux;
+            Venta v = (Venta) vd.obtenerUno(dv.getVenta().getIdVenta());
+            Cliente c = (Cliente) cd.obtenerUno(v.getCliente().getIdCliente());
+            Producto p = (Producto) pd.obtenerUno(dv.getProducto().getIdProducto());
             
-            if (opcion == JOptionPane.YES_OPTION) {
-                pd.bajaLogicaProducto(p.getIdProducto());
-               
-            }
+            double precioT = dv.getCantidad() * dv.getPrecioVenta() ;
+            dtm.addRow(new Object[]{v.getFecha().toString(),dv.getIdDetalleVenta(),c.getApellido()+" "+
+                    c.getNombre(),c.getDni(),p.getDescripcion(),
+            dv.getCantidad(),p.getPrecioActual(),dv.getPrecioVenta()});
+           
         }
-       
-   } 
+    }
+  
 }

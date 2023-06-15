@@ -62,6 +62,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Registrar Producto"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
               <Properties>
@@ -74,11 +77,33 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ventas"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMNuevaVenta">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nueva venta"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMNuevaVentaActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMBuscarVenta">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Buscar Venta"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu5">
           <Properties>
             <Property name="text" type="java.lang.String" value="Proveedores"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nuevo Proveedor"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu6">
           <Properties>
@@ -138,7 +163,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Logo" min="-2" max="-2" attributes="0"/>
+                  <Component id="Logo" min="-2" pref="527" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="jBInicio" min="-2" pref="69" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jBClientes" min="-2" pref="190" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -157,9 +184,11 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jBInicio" max="32767" attributes="0"/>
+                      <Component id="Logo" min="-2" pref="52" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jBProveedores" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
                           <Component id="jBClientes" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
@@ -168,7 +197,6 @@
                           <Component id="jBInventario" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
                           <Component id="jBCalendario" alignment="3" min="-2" pref="60" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="Logo" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -242,6 +270,9 @@
               <Color id="Cursor de Mano"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBVentasActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBInventario">
           <Properties>
@@ -317,6 +348,16 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LogoMouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jBInicio">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/3643769-building-home-house-main-menu-start_113416.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBInicioActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
