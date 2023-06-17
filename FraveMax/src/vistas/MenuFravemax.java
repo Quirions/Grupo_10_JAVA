@@ -11,6 +11,7 @@ public class MenuFravemax extends javax.swing.JFrame {
     PCliente pc = new PCliente(this); 
     PProducto pp = new PProducto(this);
     PPVenta ppv = new PPVenta(this);
+    PProveedor pprv = new PProveedor(this);
     public MenuFravemax() {
         initComponents();
         this.setTitle("Control de Ventas e Inventario FRAVEMAX");
@@ -107,6 +108,11 @@ public class MenuFravemax extends javax.swing.JFrame {
         jBProveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/elements_right_diagram_graph_element_infographic_icon_252438.png"))); // NOI18N
         jBProveedores.setText("Proveedores");
         jBProveedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBProveedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBProveedoresActionPerformed(evt);
+            }
+        });
 
         jBCalendario.setBackground(new java.awt.Color(6, 89, 138));
         jBCalendario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -359,6 +365,10 @@ public class MenuFravemax extends javax.swing.JFrame {
       JIFAdminProveedor jif = new JIFAdminProveedor();
         mostrarJIF(jif);
     }//GEN-LAST:event_jMSolicitudCompraActionPerformed
+
+    private void jBProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBProveedoresActionPerformed
+        mostrarJpanel(pprv);
+    }//GEN-LAST:event_jBProveedoresActionPerformed
 
     /**
      * @param args the command line arguments
