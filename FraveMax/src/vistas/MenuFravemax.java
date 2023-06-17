@@ -46,13 +46,14 @@ public class MenuFravemax extends javax.swing.JFrame {
         jMBuscarVenta = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMSolicitudCompra = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanelIconos.setBackground(new java.awt.Color(255, 255, 255));
 
-        jBClientes.setBackground(new java.awt.Color(0, 0, 204));
+        jBClientes.setBackground(new java.awt.Color(6, 89, 138));
         jBClientes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jBClientes.setForeground(new java.awt.Color(255, 255, 255));
         jBClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/growth_evolve_success_achieve_development_person_personal_icon_252436.png"))); // NOI18N
@@ -69,7 +70,7 @@ public class MenuFravemax extends javax.swing.JFrame {
             }
         });
 
-        jBProducots.setBackground(new java.awt.Color(255, 255, 0));
+        jBProducots.setBackground(new java.awt.Color(6, 89, 138));
         jBProducots.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jBProducots.setForeground(new java.awt.Color(255, 255, 255));
         jBProducots.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/print_cubes_scheme_modular_color_edit_products_miscellaneous_icon_252420.png"))); // NOI18N
@@ -81,7 +82,7 @@ public class MenuFravemax extends javax.swing.JFrame {
             }
         });
 
-        jBVentas.setBackground(new java.awt.Color(0, 204, 51));
+        jBVentas.setBackground(new java.awt.Color(6, 89, 138));
         jBVentas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jBVentas.setForeground(new java.awt.Color(255, 255, 255));
         jBVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/chart_statistics_infographic_analytics_finance_business_bubbles_icon_252405.png"))); // NOI18N
@@ -93,21 +94,21 @@ public class MenuFravemax extends javax.swing.JFrame {
             }
         });
 
-        jBInventario.setBackground(new java.awt.Color(204, 0, 51));
+        jBInventario.setBackground(new java.awt.Color(6, 89, 138));
         jBInventario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jBInventario.setForeground(new java.awt.Color(255, 255, 255));
         jBInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/analytics_statistics_abc_infographic_seo_stats_web_icon_252397.png"))); // NOI18N
         jBInventario.setText("    Inventario");
         jBInventario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jBProveedores.setBackground(new java.awt.Color(204, 0, 204));
+        jBProveedores.setBackground(new java.awt.Color(6, 89, 138));
         jBProveedores.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jBProveedores.setForeground(new java.awt.Color(255, 255, 255));
         jBProveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/elements_right_diagram_graph_element_infographic_icon_252438.png"))); // NOI18N
         jBProveedores.setText("Proveedores");
         jBProveedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jBCalendario.setBackground(new java.awt.Color(0, 204, 204));
+        jBCalendario.setBackground(new java.awt.Color(6, 89, 138));
         jBCalendario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jBCalendario.setForeground(new java.awt.Color(255, 255, 255));
         jBCalendario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/calendar_30000.png"))); // NOI18N
@@ -180,11 +181,11 @@ public class MenuFravemax extends javax.swing.JFrame {
         JEscritorio.setLayout(JEscritorioLayout);
         JEscritorioLayout.setHorizontalGroup(
             JEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2475, Short.MAX_VALUE)
+            .addGap(0, 1920, Short.MAX_VALUE)
         );
         JEscritorioLayout.setVerticalGroup(
             JEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1392, Short.MAX_VALUE)
+            .addGap(0, 1080, Short.MAX_VALUE)
         );
 
         jMenuBar1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -260,6 +261,14 @@ public class MenuFravemax extends javax.swing.JFrame {
 
         jMenuItem3.setText("Nuevo Proveedor");
         jMenu5.add(jMenuItem3);
+
+        jMSolicitudCompra.setText("Solicitud Compra");
+        jMSolicitudCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMSolicitudCompraActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMSolicitudCompra);
 
         jMenuBar1.add(jMenu5);
 
@@ -346,6 +355,11 @@ public class MenuFravemax extends javax.swing.JFrame {
         mostrarJIF(jif);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMSolicitudCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMSolicitudCompraActionPerformed
+      JIFAdminProveedor jif = new JIFAdminProveedor();
+        mostrarJIF(jif);
+    }//GEN-LAST:event_jMSolicitudCompraActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -394,6 +408,7 @@ public class MenuFravemax extends javax.swing.JFrame {
     private javax.swing.JButton jBVentas;
     private javax.swing.JMenuItem jMBuscarVenta;
     private javax.swing.JMenuItem jMNuevaVenta;
+    private javax.swing.JMenuItem jMSolicitudCompra;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

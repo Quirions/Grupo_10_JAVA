@@ -29,25 +29,25 @@ public class ClienteData implements SqlCrud {
         con = Conexion.getConexion();
     }
  
-    public Cliente buscarClienteDNI(Cliente c){
+    public ArrayList<Cliente> buscarClienteApellido(String Pclave){
         
-        Cliente cliente = null;
-        
+         ArrayList<Cliente>clientes=new ArrayList();
         try {
-           PreparedStatement ps = con.prepareStatement("SELECT idCliente FROM cliente WHERE dni = ?");
-           ps.setInt(1, c.getIdCliente());
+           PreparedStatement ps = con.prepareStatement("SELECT * FROM cliente WHERE apellido LIKE ?");
+           ps.setString(1, Pclave + "%");
             
            ResultSet rs = ps.executeQuery();
            
-           if(rs.next()){
-               
-               cliente.setIdCliente(c.getIdCliente());
+           while(rs.next()){
+               Cliente cliente = new Cliente(); 
+               cliente.setIdCliente(rs.getInt("idCliente"));
                cliente.setNombre(rs.getString("nombre"));
                cliente.setApellido(rs.getString("apellido"));
                cliente.setDni(rs.getInt("dni"));
                cliente.setDomicilio(rs.getString("domicilio"));
                cliente.setTelefono(rs.getInt("telefono"));
                cliente.setEstado(rs.getBoolean("estado"));
+               clientes.add(cliente);
                
            }
             ps.close();
@@ -56,8 +56,38 @@ public class ClienteData implements SqlCrud {
         }
         
         
-        return cliente;
+        return clientes;
         
+    }
+    
+    public ArrayList<Cliente> buscarClienteDNI(String Pclave){
+        
+         ArrayList<Cliente>clientes=new ArrayList();
+        try {
+           PreparedStatement ps = con.prepareStatement("SELECT * FROM cliente WHERE dni LIKE ?");
+           ps.setString(1, Pclave + "%");
+            
+           ResultSet rs = ps.executeQuery();
+           
+           while(rs.next()){
+               Cliente cliente = new Cliente(); 
+               cliente.setIdCliente(rs.getInt("idCliente"));
+               cliente.setNombre(rs.getString("nombre"));
+               cliente.setApellido(rs.getString("apellido"));
+               cliente.setDni(rs.getInt("dni"));
+               cliente.setDomicilio(rs.getString("domicilio"));
+               cliente.setTelefono(rs.getInt("telefono"));
+               cliente.setEstado(rs.getBoolean("estado"));
+               clientes.add(cliente);
+               
+           }
+            ps.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteData.class.getName()).log(Level.SEVERE, "Error en conectar a base de datos", ex.getMessage());
+        }
+        
+        
+        return clientes;
     }
     
     public void bajaLogicaCliente(int idCliente){

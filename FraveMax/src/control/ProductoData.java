@@ -95,7 +95,7 @@ public class ProductoData implements SqlCrud{
     }
 
     @Override
-public Object obtenerUno(int id) {
+    public Object obtenerUno(int id) {
     Producto producto = null;
     try {
         PreparedStatement ps = con.prepareStatement(OBTENER_UNO);
@@ -121,7 +121,7 @@ public Object obtenerUno(int id) {
 }
 
     @Override
-public List<Object> obtenerTodo() {
+    public List<Object> obtenerTodo() {
     ArrayList<Object> listaProductos = new ArrayList<>();
 
     try {
@@ -149,7 +149,9 @@ public List<Object> obtenerTodo() {
         
     }
 
-
+    public void altaLogicaProducto(int idProducto){
+        
+    }
     
    
 }

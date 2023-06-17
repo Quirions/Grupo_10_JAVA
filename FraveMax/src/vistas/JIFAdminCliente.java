@@ -52,7 +52,7 @@ public class JIFAdminCliente extends javax.swing.JInternalFrame {
 
         jTextField1.setText("jTextField1");
 
-        setBackground(new java.awt.Color(102, 204, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jBSalir.setText("Salir");
         jBSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -129,7 +129,7 @@ public class JIFAdminCliente extends javax.swing.JInternalFrame {
         });
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel10.setText("Ingrese el ID del Cliente");
+        jLabel10.setText("Ingrese el DNI del Cliente");
 
         jLEstado.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLEstado.setText("-");

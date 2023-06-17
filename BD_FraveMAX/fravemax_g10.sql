@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-06-2023 a las 02:11:44
+-- Tiempo de generación: 17-06-2023 a las 07:41:56
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -42,20 +42,24 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`idCliente`, `apellido`, `nombre`, `dni`, `domicilio`, `telefono`, `estado`) VALUES
-(1, 'Sosa', 'Rodrigo', 28965421, 'San Martin 66', 267854521, 1),
-(2, 'Diaz', 'Oscar', 34525855, 'Mitre 168', 2147483647, 1),
-(3, 'Tello', 'Juan', 32588456, 'Peñaloza 123', 11223252, 1),
-(4, 'Diaz', 'Ignacio', 32456789, 'Mitre 321', 256854585, 1),
-(5, 'Roldan', 'Pablo', 3214565, 'San Juan 154', 26574852, 1),
-(6, 'Palacio', 'Andrez', 3214569, 'Lainez 234', 26584852, 1),
-(7, 'Soloa', 'Ignacio', 3332258, 'juan saa 222', 26547532, 1),
-(9, 'dominguez', 'daniel', 35486513, 'lavalle 222', 26579845, 1),
-(10, 'Figueroa', 'Marcelo', 32145698, 'Berrondo 147', 265752652, 1),
-(12, 'Bustos', 'Sofia', 32156454, 'Iseas 1544', 265487554, 1),
-(13, 'Andreani', 'Romina', 35478545, 'Los Andes 1244', 112548784, 1),
+(1, 'Sosas', 'Rodrigo', 28965421, 'San Martin 66', 267854521, 1),
+(2, 'diaz', 'oscar', 34525855, 'Mitre 300', 2147483647, 1),
+(3, 'Juan', 'Tello', 32588456, 'Peñaloza 123', 11223252, 1),
+(4, 'diaz', 'ignacio', 32456789, 'Mitre 333', 256854585, 1),
+(5, 'Pablo', 'Roldano', 3214565, 'San Juan 258', 26574852, 1),
+(6, 'Andrez', 'Palacio', 3214569, 'Lainez 234', 26584852, 1),
+(7, 'Ignacio', 'Soloas', 3332258, 'juan saa 222', 26547532, 0),
+(9, 'daniel', 'dominguez', 35486513, 'lavalle 555', 26579845, 1),
+(10, 'figueroa', 'marcela', 32145698, 'Berrondo 147', 265752652, 0),
+(12, 'Bustos', 'Sofia', 32156454, 'Iseas 1544', 265487554, 0),
+(13, 'Romina', 'Andreani', 35478545, 'Los Andes 1255', 112548784, 1),
 (14, 'Perez', 'Carlos Manuel', 22564587, 'Alric 258', 26545522, 1),
-(15, 'Ruiz', 'Sebastian', 32564548, 'Chacabuco 235', 265487611, 1),
-(16, 'Retegui', 'Carolina', 32589564, 'Cordoba 147', 265898641, 0);
+(15, 'Ruis', 'Sebastian', 32564548, 'Chacabuco 235', 265487611, 1),
+(16, 'Retegui', 'Carolina', 32589564, 'Cordoba 147', 265898641, 0),
+(17, 'Gomez', 'Dario', 235484956, 'Juan w gez 123', 262589456, 1),
+(19, 'Romina', 'Calderon', 34785121, 'Andes 666', 222555888, 1),
+(20, 'Romero', 'Cristian', 32659874, 'Berrondo 1233', 26598977, 1),
+(21, 'Marcela', 'Gimenez', 35998154, 'Lavalle 432', 265555845, 1);
 
 -- --------------------------------------------------------
 
@@ -118,7 +122,8 @@ INSERT INTO `detalleventa` (`idDetalleVenta`, `cantidad`, `precioVenta`, `idVent
 (14, 2, 250000, 16, 1),
 (15, 2, 50000, 17, 9),
 (16, 1, 98000, 18, 2),
-(17, 1, 350000, 19, 5);
+(17, 1, 350000, 19, 5),
+(18, 1, 130000, 20, 3);
 
 -- --------------------------------------------------------
 
@@ -141,7 +146,7 @@ CREATE TABLE `producto` (
 INSERT INTO `producto` (`idProducto`, `descripcion`, `precioActual`, `stock`, `estado`) VALUES
 (1, 'Lavarropas Aurora 6kg', 125000, 10, 1),
 (2, 'Televisor 42\" Sony', 98000, 14, 1),
-(3, 'NoteBook 14\" Lenovo', 130000, 12, 1),
+(3, 'NoteBook 14\" Lenovo', 130000, 11, 1),
 (4, 'Heladera Philips', 100000, 5, 1),
 (5, 'PlayStation 5 Sony', 350000, 8, 1),
 (6, 'Bicicleta Fija Generica', 50000, 16, 1),
@@ -201,7 +206,8 @@ INSERT INTO `venta` (`idVenta`, `fecha`, `idCliente`) VALUES
 (16, '2023-06-14', 15),
 (17, '2023-06-14', 14),
 (18, '2023-06-14', 12),
-(19, '2023-06-14', 1);
+(19, '2023-06-14', 1),
+(20, '2023-06-15', 1);
 
 --
 -- Índices para tablas volcadas
@@ -264,7 +270,7 @@ ALTER TABLE `venta`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `compra`
@@ -282,7 +288,7 @@ ALTER TABLE `detallecompra`
 -- AUTO_INCREMENT de la tabla `detalleventa`
 --
 ALTER TABLE `detalleventa`
-  MODIFY `idDetalleVenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `idDetalleVenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
@@ -294,7 +300,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `idVenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `idVenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Restricciones para tablas volcadas
