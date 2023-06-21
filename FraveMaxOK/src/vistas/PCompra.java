@@ -243,6 +243,7 @@ public class PCompra extends javax.swing.JPanel {
         ArrayList<DetalleCompra>listaCompra =  dcd.obtenerProductosCompra(id);
         
         for (Object aux : listaCompra) {
+            precioT =0;
             DetalleCompra dc = (DetalleCompra)aux;
             Compra c = (Compra) comd.obtenerUno(dc.getCompra().getIdCompra());
             Proveedor pr = (Proveedor) pvd.obtenerUno(c.getProveedor().getIdProveedor());

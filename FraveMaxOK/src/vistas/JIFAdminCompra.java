@@ -581,7 +581,10 @@ public class JIFAdminCompra extends javax.swing.JInternalFrame {
         for (Object aux : ListaProductos) {
             Producto producto = (Producto)aux;
             precioCosto = producto.getPrecioActual()/2;
+           
             dtm.addRow(new Object[]{producto.getIdProducto(),producto.getDescripcion(),precioCosto});
+            
+            
         }
     }
     private void llenarTablaInventario(){    
@@ -589,7 +592,11 @@ public class JIFAdminCompra extends javax.swing.JInternalFrame {
          ArrayList<Object> ListaProductosInventario = (ArrayList<Object>) pd.obtenerTodo();
         for (Object aux : ListaProductosInventario) {
             Producto producto = (Producto)aux;
-            dtmi.addRow(new Object[]{producto.getIdProducto(),producto.getDescripcion(),producto.getPrecioActual(),producto.getStock()});
+             if(producto.isEstado()){
+          
+              dtmi.addRow(new Object[]{producto.getIdProducto(),producto.getDescripcion(),producto.getPrecioActual(),producto.getStock()});
+             
+             }
         }
         
     }

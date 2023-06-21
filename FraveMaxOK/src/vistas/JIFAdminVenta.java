@@ -615,8 +615,12 @@ public class JIFAdminVenta extends javax.swing.JInternalFrame {
         Cliente c = (Cliente) jComboBoxCliente.getSelectedItem();
         ArrayList<Object> ListaProductos = (ArrayList<Object>) pd.obtenerTodo();
         for (Object aux : ListaProductos) {
+            
             Producto producto = (Producto)aux;
+            if(producto.isEstado()){
             dtm.addRow(new Object[]{producto.getIdProducto(),producto.getDescripcion(),producto.getPrecioActual(),producto.getStock()});
+            }
+            
         }
     }
     private void controlStock(Producto p, int cantidad){
