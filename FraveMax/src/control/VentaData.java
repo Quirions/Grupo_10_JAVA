@@ -9,6 +9,7 @@ import java.util.List;
 
 
 
+
 public class VentaData implements SqlCrud{
     private final Connection conexion;
 
@@ -124,6 +125,7 @@ public class VentaData implements SqlCrud{
         String query = "SELECT * FROM venta";
         try {
             PreparedStatement ps = conexion.prepareStatement(query);
+            
             ResultSet resultado = ps.executeQuery();
             while (resultado.next()) {
                 Venta vt = new Venta();
@@ -141,4 +143,33 @@ public class VentaData implements SqlCrud{
         }
         return lista;
     }
+    
+    public ArrayList<Venta> obtenerTodoPorFecha(String d){
+      ArrayList<Venta> lista = new ArrayList<>();
+        String query = "SELECT * FROM venta WHERE fecha = ?";
+        try {
+            PreparedStatement ps = conexion.prepareStatement(query);
+            ps.setString(1,  d);
+            ResultSet resultado = ps.executeQuery();
+            while (resultado.next()) {
+                Venta vt = new Venta();
+                vt.setIdVenta(resultado.getInt("idVenta"));
+                vt.setFecha(resultado.getDate("fecha").toLocalDate());
+                vt.setCliente(new Cliente());
+                vt.getCliente().setIdCliente(resultado.getInt("idCliente"));
+                
+                lista.add(vt);
+            }
+            ps.close();
+            resultado.close();
+        } catch (SQLException e) {
+            System.out.println("Error en la bd" + e);
+        }
+        return lista;
+        
+  
+        
+    }
+    
+    
 }

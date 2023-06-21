@@ -11,6 +11,7 @@ import control.ProveedorData;
 import control.VentaData;
 import entidades.Cliente;
 import entidades.Compra;
+import entidades.DetalleCompra;
 import entidades.DetalleVenta;
 import entidades.Producto;
 import entidades.Proveedor;
@@ -256,19 +257,22 @@ public class PCompra extends javax.swing.JPanel {
         }
     }
    private void llenarTablaDetalle(int id){
-        
+        double precioTL = 0;
+        double precioT =0;
         dtmd.setRowCount(0);
-        ArrayList<DetalleVenta>listaCompra =  dcd.obtenerProductosCompra(id);
-        System.out.println(listaCompra);
+        ArrayList<DetalleCompra>listaCompra =  dcd.obtenerProductosCompra(id);
+        
         for (Object aux : listaCompra) {
-            DetalleVenta dv = (DetalleVenta)aux;
-            Venta v = (Venta) vd.obtenerUno(dv.getVenta().getIdVenta());
-            Cliente c = (Cliente) cd.obtenerUno(v.getCliente().getIdCliente());
-            Producto p = (Producto) pd.obtenerUno(dv.getProducto().getIdProducto());
-            
-            dtmd.addRow(new Object[]{p.getDescripcion(),dv.getCantidad(),p.getPrecioActual(),dv.getPrecioVenta()});
-           
+            DetalleCompra dc = (DetalleCompra)aux;
+            Compra c = (Compra) comd.obtenerUno(dc.getCompra().getIdCompra());
+            Proveedor pr = (Proveedor) pvd.obtenerUno(c.getProveedor().getIdProveedor());
+            Producto p = (Producto) pd.obtenerUno(dc.getProducto().getIdProducto());
+            precioT += dc.getCantidad()*dc.getPrecioCosto();
+            dtmd.addRow(new Object[]{p.getDescripcion(),dc.getCantidad(),dc.getPrecioCosto(),precioT});
+           precioTL+=precioT;
         }
+         
+        jLPrecioFinal.setText(String.valueOf(precioTL));
     }
       public void seleccionRowTabla(){
        

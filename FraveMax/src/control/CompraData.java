@@ -97,9 +97,13 @@ public class CompraData implements SqlCrud{
             ResultSet rs = ps.executeQuery();
             
            if(rs.next()){
-               compra.setIdCompra(id);
-               compra.getProveedor().setIdProveedor(rs.getInt("idProveedor"));
-               compra.setFecha(rs.getDate("fecha").toLocalDate());
+               Compra c = new Compra();
+               c.setIdCompra(id);
+               Proveedor p = new Proveedor();
+               p.setIdProveedor(rs.getInt("idProveedor"));
+               c.setProveedor(p);
+               c.setFecha(rs.getDate("fecha").toLocalDate());
+               compra=c;
            }
             rs.close();
             ps.close();

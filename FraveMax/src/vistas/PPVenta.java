@@ -12,7 +12,9 @@ import entidades.Producto;
 import entidades.Venta;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -58,6 +60,9 @@ public class PPVenta extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLPrecioFinal = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jDateChooser = new com.toedter.calendar.JDateChooser();
+        jBBuscarPorFecha = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(6, 89, 138));
 
@@ -132,6 +137,16 @@ public class PPVenta extends javax.swing.JPanel {
         jLPrecioFinal.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLPrecioFinal.setText("-");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel3.setText("BUSCAR VENTA POR FECHA:");
+
+        jBBuscarPorFecha.setText("BUSCAR");
+        jBBuscarPorFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarPorFechaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -139,16 +154,25 @@ public class PPVenta extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLPrecioFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(897, 897, 897)
+                                .addComponent(jBBuscarPorFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                                .addGap(8, 8, 8)))
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 736, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addComponent(jLPrecioFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(jDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -158,8 +182,14 @@ public class PPVenta extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(225, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addContainerGap(180, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jDateChooser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jBBuscarPorFecha))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
@@ -171,7 +201,7 @@ public class PPVenta extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(10, 10, 10)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(314, Short.MAX_VALUE)))
+                    .addContainerGap(330, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -185,7 +215,7 @@ public class PPVenta extends javax.swing.JPanel {
                     .addComponent(jBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,12 +242,22 @@ public class PPVenta extends javax.swing.JPanel {
         llenarTablaVenta();
     }//GEN-LAST:event_JBActualizarActionPerformed
 
+    private void jBBuscarPorFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarPorFechaActionPerformed
+       
+        llenarTablaVentaFecha(jDateChooser.getDate());
+        
+        
+    }//GEN-LAST:event_jBBuscarPorFechaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBActualizar;
     private javax.swing.JButton jBAgregar;
+    private javax.swing.JButton jBBuscarPorFecha;
+    private com.toedter.calendar.JDateChooser jDateChooser;
     private javax.swing.JLabel jLPrecioFinal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -248,10 +288,10 @@ public class PPVenta extends javax.swing.JPanel {
         }
     }
    private void llenarTablaDetalle(int id){
-        
+        double precioT = 0;
         dtmd.setRowCount(0);
         ArrayList<DetalleVenta>listaVentas =  dvd.obtenerProductosVenta(id);
-        System.out.println(listaVentas);
+       
         for (Object aux : listaVentas) {
             DetalleVenta dv = (DetalleVenta)aux;
             Venta v = (Venta) vd.obtenerUno(dv.getVenta().getIdVenta());
@@ -260,7 +300,9 @@ public class PPVenta extends javax.swing.JPanel {
             
             dtmd.addRow(new Object[]{p.getDescripcion(),dv.getCantidad(),p.getPrecioActual(),dv.getPrecioVenta()});
            
+            precioT+=dv.getPrecioVenta();
         }
+        jLPrecioFinal.setText(String.valueOf(precioT));
     }
       public void seleccionRowTabla(){
        
@@ -270,12 +312,33 @@ public class PPVenta extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) jTableVentas.getModel();
         int selectedRow = jTableVentas.getSelectedRow();
 
-        id = (int) model.getValueAt(selectedRow, 1); // Obtener el valor de la columna 1 (índice 0)
+        id = (int) model.getValueAt(selectedRow, 1); 
 
         llenarTablaDetalle(id);
     }
 }
-            
+     
+      private void llenarTablaVentaFecha(Date d){
+        
+        dtm.setRowCount(0);
+        
+        java.util.Date fechaSeleccionada = jDateChooser.getDate();
+
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String fechaFormateada = sdf.format(fechaSeleccionada);
+        
+        ArrayList<Venta>listaVentas =  vd.obtenerTodoPorFecha( fechaFormateada);
+        for (Object aux : listaVentas) {
+            Venta v = (Venta) aux;
+            Cliente c = (Cliente) cd.obtenerUno(v.getCliente().getIdCliente());
+          
+            dtm.addRow(new Object[]{v.getFecha().toString(),v.getIdVenta(),c.getApellido(),c.getDni()});
+           
+        }
+    }
+      
+      
    }   
         
 

@@ -6,6 +6,7 @@ import java.util.List;
 import entidades.DetalleCompra;
 import entidades.DetalleVenta;
 import entidades.Producto;
+import entidades.Venta;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -102,8 +103,37 @@ public class DetalleCompraData implements SqlCrud{
         return lista;
     }
 
-    public ArrayList<DetalleVenta> obtenerProductosCompra(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public ArrayList<DetalleCompra> obtenerProductosCompra(int id){
+        ArrayList<DetalleCompra> ListaProductos = new ArrayList();
+
+       String query="SELECT detalleCompra.* FROM detalleCompra JOIN Compra ON detalleCompra.idCompra = Compra.idCompra WHERE Compra.idCompra = ?";
+        try {
+            PreparedStatement ps = conexion.prepareStatement(query);
+            ps.setInt(1, id);
+            ResultSet resultado = ps.executeQuery();
+            while (resultado.next()) {
+               DetalleCompra dc = new DetalleCompra();
+               
+                dc.setIdDetalleVenta(resultado.getInt("idDetalle"));
+                dc.setCantidad(resultado.getInt("cantidad"));
+                dc.setPrecioCosto(resultado.getDouble("precioCosto"));
+                Compra c = new Compra();c.setIdCompra(resultado.getInt("idCompra"));
+                dc.setCompra(c);
+                Producto p = new Producto();p.setIdProducto(resultado.getInt("idProducto"));
+                dc.setProducto(p);
+                ListaProductos.add(dc);
+                
+            }
+            
+            ps.close();
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error en la bd de detalle venta" + e.getMessage() );
+        }
+
+        return ListaProductos;
+        
     }
 
     

@@ -107,7 +107,8 @@ public class DetalleVentaData implements SqlCrud{
 
     public ArrayList<DetalleVenta> obtenerProductosVenta(int id){
         ArrayList<DetalleVenta> ListaProductos = new ArrayList();
-        String query = "SELECT * FROM detalleVenta WHERE idVenta in(SELECT idProducto FROM detalleventa WHERE idVenta = ? )";
+
+String query="SELECT detalleVenta. * FROM detalleVenta JOIN venta ON detalleVenta.idVenta = venta.idVenta WHERE venta.idVenta = ?";
         try {
             PreparedStatement ps = conexion.prepareStatement(query);
             ps.setInt(1, id);
@@ -125,7 +126,7 @@ public class DetalleVentaData implements SqlCrud{
                 ListaProductos.add(dv);
                 
             }
-            System.out.println(ListaProductos);
+            
             ps.close();
             
         } catch (SQLException e) {

@@ -39,7 +39,6 @@ public class PProveedor extends javax.swing.JPanel {
     private void initComponents() {
 
         JBActualizar = new javax.swing.JButton();
-        jBAgregar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableClientes = new javax.swing.JTable();
@@ -58,8 +57,8 @@ public class PProveedor extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLNumeroID = new javax.swing.JLabel();
-        jRadioBDni = new javax.swing.JRadioButton();
-        jRadioBApellido = new javax.swing.JRadioButton();
+        jRadioTelefono = new javax.swing.JRadioButton();
+        jRadioRazonS = new javax.swing.JRadioButton();
         jTID = new javax.swing.JTextField();
         jBRealizarCompra = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -67,9 +66,9 @@ public class PProveedor extends javax.swing.JPanel {
         jTNuevoDomicilio = new javax.swing.JTextField();
         jTNuevoTelefono = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jBAgregar1 = new javax.swing.JButton();
+        jBAgregar = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
-        jTNuevoNombre = new javax.swing.JTextField();
+        jTNuevoRazon = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         JBClearNuevo = new javax.swing.JButton();
@@ -81,14 +80,6 @@ public class PProveedor extends javax.swing.JPanel {
         JBActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBActualizarActionPerformed(evt);
-            }
-        });
-
-        jBAgregar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jBAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add_icon-icons.com_74429.png"))); // NOI18N
-        jBAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBAgregarActionPerformed(evt);
             }
         });
 
@@ -218,17 +209,17 @@ public class PProveedor extends javax.swing.JPanel {
                 .addComponent(jLNumeroID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jRadioBDni.setText("RAZON SOCIAL");
-        jRadioBDni.addActionListener(new java.awt.event.ActionListener() {
+        jRadioTelefono.setText("TELEFONO");
+        jRadioTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioBDniActionPerformed(evt);
+                jRadioTelefonoActionPerformed(evt);
             }
         });
 
-        jRadioBApellido.setText("TELEFONO");
-        jRadioBApellido.addActionListener(new java.awt.event.ActionListener() {
+        jRadioRazonS.setText("RAZON SOCIAL");
+        jRadioRazonS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioBApellidoActionPerformed(evt);
+                jRadioRazonSActionPerformed(evt);
             }
         });
 
@@ -282,8 +273,8 @@ public class PProveedor extends javax.swing.JPanel {
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jRadioBApellido)
-                                            .addComponent(jRadioBDni)))
+                                            .addComponent(jRadioRazonS)
+                                            .addComponent(jRadioTelefono)))
                                     .addComponent(jTID)))
                             .addComponent(jLabel11)
                             .addComponent(jTTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -304,11 +295,11 @@ public class PProveedor extends javax.swing.JPanel {
                     .addComponent(jTID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioBDni)
+                    .addComponent(jRadioTelefono)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioBApellido)
+                    .addComponent(jRadioRazonS)
                     .addComponent(jTDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel11)
@@ -334,19 +325,19 @@ public class PProveedor extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel7.setText("TELEFONO");
 
-        jBAgregar1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jBAgregar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add_icon-icons.com_74429.png"))); // NOI18N
-        jBAgregar1.setText("    AGREGAR");
-        jBAgregar1.addActionListener(new java.awt.event.ActionListener() {
+        jBAgregar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jBAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add_icon-icons.com_74429.png"))); // NOI18N
+        jBAgregar.setText("    AGREGAR");
+        jBAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBAgregar1ActionPerformed(evt);
+                jBAgregarActionPerformed(evt);
             }
         });
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel20.setText("RAZON SOCIAL");
 
-        jTNuevoNombre.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jTNuevoRazon.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
 
         jPanel5.setBackground(new java.awt.Color(6, 89, 112));
 
@@ -387,10 +378,10 @@ public class PProveedor extends javax.swing.JPanel {
                     .addComponent(jTNuevoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(jTNuevoDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTNuevoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTNuevoRazon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jBAgregar1)
+                        .addComponent(jBAgregar)
                         .addGap(18, 18, 18)
                         .addComponent(JBClearNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -402,7 +393,7 @@ public class PProveedor extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTNuevoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTNuevoRazon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -414,7 +405,7 @@ public class PProveedor extends javax.swing.JPanel {
                 .addGap(134, 134, 134)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBClearNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -452,9 +443,7 @@ public class PProveedor extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(JBActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -466,18 +455,11 @@ public class PProveedor extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jBAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(78, 78, 78)
                         .addComponent(JBActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
-
-//       ActivarSelectdeTable();
-        
-    }//GEN-LAST:event_jBAgregarActionPerformed
 
     private void JBActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBActualizarActionPerformed
        
@@ -488,46 +470,52 @@ public class PProveedor extends javax.swing.JPanel {
         jTID.setEditable(false);
     }//GEN-LAST:event_JBActualizarActionPerformed
 
-    private void jBAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregar1ActionPerformed
-//        Cliente c = new Cliente();
-//        c.setNombre(jTNuevoNombre.getText());
-//       
-//        c.setDomicilio(jTNuevoDomicilio.getText());
-//        c.setTelefono(Integer.parseInt(jTNuevoTelefono.getText()));
-//
-//        cd.insertar(c);
-//
-//        JOptionPane.showMessageDialog(null, "Cliente agregado exitosamente");
-//        clear();
-    }//GEN-LAST:event_jBAgregar1ActionPerformed
+    private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
+          
+        try{
+            Proveedor p = new Proveedor();
+          p.setRazonSocial(jTNuevoRazon.getText());
+          p.setDomicilio(jTNuevoDomicilio.getText());
+          p.setTelefono(Integer.parseInt(jTNuevoTelefono.getText()));
+
+          pd.insertar(p);
+          JOptionPane.showMessageDialog(null, "Proveedor agregado exitosamente");
+          clear();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "ocurrio algo");
+        }
+         
+
+
+    }//GEN-LAST:event_jBAgregarActionPerformed
 
     private void JBClearNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBClearNuevoActionPerformed
         clear();
     }//GEN-LAST:event_JBClearNuevoActionPerformed
 
     private void jTIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTIDKeyReleased
-//        llenarTablaPorSeleccion();
+        llenarTablaPorSeleccion();
     }//GEN-LAST:event_jTIDKeyReleased
 
     private void jTIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTIDActionPerformed
 
-    private void jRadioBApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioBApellidoActionPerformed
+    private void jRadioRazonSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioRazonSActionPerformed
         llenarTabla();
-        jRadioBDni.setSelected(false);
+        jRadioTelefono.setSelected(false);
         jTID.setText("");
         jTID.setEditable(true);
         noEnablejtf();
-    }//GEN-LAST:event_jRadioBApellidoActionPerformed
+    }//GEN-LAST:event_jRadioRazonSActionPerformed
 
-    private void jRadioBDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioBDniActionPerformed
+    private void jRadioTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioTelefonoActionPerformed
         llenarTabla();
-        jRadioBApellido.setSelected(false);
+        jRadioRazonS.setSelected(false);
         jTID.setText("");
         jTID.setEditable(true);
         noEnablejtf();
-    }//GEN-LAST:event_jRadioBDniActionPerformed
+    }//GEN-LAST:event_jRadioTelefonoActionPerformed
 
     private void jTRazonSocialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTRazonSocialActionPerformed
         
@@ -540,22 +528,22 @@ public class PProveedor extends javax.swing.JPanel {
     }//GEN-LAST:event_jTDomicilioActionPerformed
 
     private void jBActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBActualizarActionPerformed
-//        try{
-//            Cliente c = new Cliente();
-//            c.setIdCliente(Integer.parseInt(jLNumeroID.getText()));
-//            c.setNombre(jTRazonSocial.getText());
-//          
-//            c.setDomicilio(jTDomicilio.getText());
-//            c.setTelefono(Integer.parseInt(jTTelefono.getText()));
-//            cd.actualizar(c);
-//
-//            clearAdm();
-//
-//        }catch(NumberFormatException e){
-//            JOptionPane.showMessageDialog(null, "debe ingresar un numero");
-//        }
-//        llenarTabla();
-//        jTID.setText("");
+        try{
+            Proveedor p = new Proveedor();
+            p.setIdProveedor(Integer.parseInt(jLNumeroID.getText()));
+            p.setRazonSocial(jTRazonSocial.getText());
+          
+            p.setDomicilio(jTDomicilio.getText());
+            p.setTelefono(Integer.parseInt(jTTelefono.getText()));
+            pd.actualizar(p);
+
+            clearAdm();
+
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Ocurrio un error");
+        }
+        llenarTabla();
+        jTID.setText("");
     }//GEN-LAST:event_jBActualizarActionPerformed
 
     private void jBLimpiarAdmCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarAdmCActionPerformed
@@ -580,7 +568,6 @@ public class PProveedor extends javax.swing.JPanel {
     private javax.swing.JButton JBClearNuevo;
     private javax.swing.JButton jBActualizar;
     private javax.swing.JButton jBAgregar;
-    private javax.swing.JButton jBAgregar1;
     private javax.swing.JButton jBLimpiarAdmC;
     private javax.swing.JButton jBRealizarCompra;
     private javax.swing.JLabel jLNumeroID;
@@ -600,13 +587,13 @@ public class PProveedor extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JRadioButton jRadioBApellido;
-    private javax.swing.JRadioButton jRadioBDni;
+    private javax.swing.JRadioButton jRadioRazonS;
+    private javax.swing.JRadioButton jRadioTelefono;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTDomicilio;
     private javax.swing.JTextField jTID;
     private javax.swing.JTextField jTNuevoDomicilio;
-    private javax.swing.JTextField jTNuevoNombre;
+    private javax.swing.JTextField jTNuevoRazon;
     private javax.swing.JTextField jTNuevoTelefono;
     private javax.swing.JTextField jTRazonSocial;
     private javax.swing.JTextField jTTelefono;
@@ -632,66 +619,33 @@ public class PProveedor extends javax.swing.JPanel {
         noEnablejtf();
     }
     
-//    public void llenarTablaPorSeleccion(){
-//    
-//        if(jRadioBDni.isSelected()){
-//            dtm.setRowCount(0);
-//        ArrayList<Cliente>listaCliente = cd.buscarClienteDNI(jTID.getText());
-//        for (Object aux : listaCliente) {
-//            Cliente cliente = (Cliente)aux;
-//            dtm.addRow(new Object[]{cliente.getIdCliente(),cliente.getApellido(),cliente.getNombre(),cliente.getDni(),cliente.getDomicilio(),cliente.getTelefono()});
-//        }
-//        }
-//        
-//        if(jRadioBApellido.isSelected()){
-//            
-//        dtm.setRowCount(0);
-//        ArrayList<Cliente>listaCliente = cd.buscarClienteApellido(jTID.getText());
-//        for (Object aux : listaCliente) {
-//            Cliente cliente = (Cliente)aux;
-//            dtm.addRow(new Object[]{cliente.getIdCliente(),cliente.getApellido(),cliente.getNombre(),cliente.getDni(),cliente.getDomicilio(),cliente.getTelefono()});
-//        }
-//        
-//        }    
-//        
-//    }
+    public void llenarTablaPorSeleccion(){
+    
+        if(jRadioTelefono.isSelected()){
+            dtm.setRowCount(0);
+        ArrayList<Proveedor>listap = pd.buscarClienteTelefono(jTID.getText());
+        for (Object aux : listap) {
+            Proveedor p = (Proveedor)aux;
+            dtm.addRow(new Object[]{p.getIdProveedor(),p.getRazonSocial(),p.getDomicilio(),p.getTelefono()});
+        }
+        }
+        
+        if(jRadioRazonS.isSelected()){
+            
+       
+        dtm.setRowCount(0);
+        ArrayList<Proveedor>listap = pd.buscarClienteRazonS(jTID.getText());
+        for (Object aux : listap) {
+            Proveedor p = (Proveedor)aux;
+            dtm.addRow(new Object[]{p.getIdProveedor(),p.getRazonSocial(),p.getDomicilio(),p.getTelefono()});
+        
+        }    
+        
+    }
+    } 
     
     
-    
-//   public void eliminarSelectDeTabla(){
-//       
-//       DefaultTableModel model = (DefaultTableModel) jTableClientes.getModel();
-//       
-//       int id = (int) model.getValueAt(jTableClientes.getSelectedRow(), 0);
-//        
-//        Cliente c = (Cliente) cd.obtenerUno(id);
-//        if(c.isEstado()){
-//            int opcion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de dar de BAJA este cliente?", "Confirmación", JOptionPane.YES_NO_OPTION);
-//            
-//            if (opcion == JOptionPane.YES_OPTION) {
-//                cd.bajaLogicaCliente(c.getIdCliente());
-//               
-//            }
-//        }
-//       llenarTabla();
-//   } 
 
-//   public void ActivarSelectdeTable(){
-//       DefaultTableModel model = (DefaultTableModel) jTableClientes.getModel();
-//       
-//       int id = (int) model.getValueAt(jTableClientes.getSelectedRow(), 0);
-//        
-//        Cliente c = (Cliente) cd.obtenerUno(id);
-//        if(!c.isEstado()){
-//            int opcion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de dar de ALTA este cliente?", "Confirmación", JOptionPane.YES_NO_OPTION);
-//            
-//            if (opcion == JOptionPane.YES_OPTION) {
-//                cd.habilitarCliente(c);
-//               
-//            }
-//        }
-//        llenarTabla();
-//   }
    
    public void seleccionRowTabla(){
        
@@ -723,7 +677,7 @@ public class PProveedor extends javax.swing.JPanel {
    }
    
     private void clear() {
-        jTNuevoNombre.setText("");
+        jTNuevoRazon.setText("");
       
         jTNuevoDomicilio.setText("");
         jTNuevoTelefono.setText("");
@@ -735,7 +689,7 @@ public class PProveedor extends javax.swing.JPanel {
     }
     
     public void noEnablejtf(){
-        if(!jRadioBDni.isSelected()&&!jRadioBApellido.isSelected()){
+        if(!jRadioTelefono.isSelected()&&!jRadioRazonS.isSelected()){
             jTID.setEditable(false);
         }
     }
